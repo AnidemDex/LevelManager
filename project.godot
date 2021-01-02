@@ -23,10 +23,6 @@ _global_script_class_icons={
 config/name="LevelManager"
 config/icon="res://icon.png"
 
-[editor_plugins]
-
-enabled=PoolStringArray( "LevelManager" )
-
 [rendering]
 
 quality/driver/driver_name="GLES2"

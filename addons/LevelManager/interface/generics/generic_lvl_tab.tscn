@@ -34,3 +34,15 @@ margin_left = 44.0
 margin_right = 52.0
 margin_bottom = 14.0
 text = "0"
+
+[node name="SaveButton" type="Button" parent="VBoxContainer"]
+margin_left = 481.0
+margin_top = 82.0
+margin_right = 543.0
+margin_bottom = 102.0
+size_flags_horizontal = 4
+disabled = true
+text = "Guardar"
+[connection signal="NameEditButton_pressed" from="VBoxContainer" to="." method="_on_VBoxContainer_NameEditButton_pressed"]
+[connection signal="SourceEditButton_pressed" from="VBoxContainer" to="." method="_on_VBoxContainer_SourceEditButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/SaveButton" to="." method="_on_SaveButton_pressed"]

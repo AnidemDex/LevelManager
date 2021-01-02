@@ -2,17 +2,19 @@ tool
 extends Resource
 class_name ResourceLevelData
 
-export var levels = {}
-export var index = 0
+export var levels = []
 
 func add_level(name:String, source:String):
 	
-	levels[name] = {
+	levels.append({
+		"name":name,
 		"source":source,
-		"index":index,
-		}
+		})
 
-	index = self.index + 1
+	save()
+
+
+func save() -> void:
 	var err = ResourceSaver.save(resource_path, self)
 	if err:
-		push_warning("Failed to save levels data. Err#"+String(err))
+		push_warning("Failed to save levels data. Err#"+String(err))	

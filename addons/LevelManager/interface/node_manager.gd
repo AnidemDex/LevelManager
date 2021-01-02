@@ -42,25 +42,33 @@ func _update_labels():
 		_add_lvl_btn.disabled = true
 
 
+func _update_tabs() -> void:
+	_clean_tabs()
+	_create_tabs()
+
+
 func _create_tabs():
 	if level_data_resource:
 		for level in level_data_resource.levels:
 			var tab = GenericLvlTab.instance()
-			tab.lvl_name = level
-			tab.lvl_dir = level_data_resource.levels[level].source
-			tab.lvl_index = level_data_resource.levels[level].index
-			tab.name = level
-			
+			tab.lvl_name = level.name
+			tab.lvl_dir = level.source
+			tab.lvl_index = level_data_resource.levels.find(level)
+			tab.lvl_data_resource = level_data_resource
+			tab.name = tab.lvl_name
+			tab.connect("data_changed", self, "_update_tabs")
 			created_tabs.append(tab)
 			_tab_container.add_child(tab)
 	else:
 		push_warning("No existe un archivo de niveles. Crea uno nuevo")
 	pass
 
+
 func _clean_tabs():
 	for tab in created_tabs:
-		tab.free()
+		tab.queue_free()
 	created_tabs.clear()
+
 
 func _modify_configuration_data(data:Dictionary) -> void:
 	ConfigDir.level_data_file = data.path
@@ -114,5 +122,4 @@ func _on_ConfirmationDialog_popup_hide():
 			name_text,
 			dir_text
 			)
-		_clean_tabs()
-		_create_tabs()
+		_update_tabs()
