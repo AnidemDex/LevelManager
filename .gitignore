@@ -1,7 +1,6 @@
 # Defaults
 .import/
 .mono/
-addons/
 export_presets.cfg
 *.translation
 

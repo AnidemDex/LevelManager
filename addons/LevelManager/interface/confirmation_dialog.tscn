@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/LevelManager/interface/generics/generic_level_data_container.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/LevelManager/interface/confirmation_dialog.gd" type="Script" id=2]
+
+[node name="ConfirmationDialog" type="ConfirmationDialog"]
+margin_right = 483.0
+margin_bottom = 212.0
+window_title = "Añadir un nivel"
+dialog_hide_on_ok = false
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" parent="." instance=ExtResource( 1 )]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -36.0
+
+[node name="ErrorLabel_Empty" type="Label" parent="VBoxContainer"]
+visible = false
+modulate = Color( 1, 0.286275, 0.286275, 1 )
+margin_top = 64.0
+margin_right = 467.0
+margin_bottom = 78.0
+text = "Completa todos los campos para continuar"
+align = 1
+
+[node name="ErrorLabel_InvalidFile" type="Label" parent="VBoxContainer"]
+visible = false
+modulate = Color( 1, 0.286275, 0.286275, 1 )
+margin_top = 64.0
+margin_right = 467.0
+margin_bottom = 78.0
+text = "Hay algo malo con el directorio de la escena. Quizas no existe."
+align = 1
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 475.0
+margin_bottom = 176.0
+window_title = "Abrir un Archivo"
+mode = 0
+filters = PoolStringArray( "*.tscn ; Godot Scene" )
+[connection signal="confirmed" from="." to="." method="_on_ConfirmationDialog_confirmed"]
+[connection signal="SourceEditButton_pressed" from="VBoxContainer" to="." method="_on_VBoxContainer_SourceEditButton_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
