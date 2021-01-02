@@ -107,9 +107,12 @@ func _on_AddLvlButton_pressed():
 
 
 func _on_ConfirmationDialog_popup_hide():
-	level_data_resource.add_level(
-		$ConfirmationDialog.name_label.text,
-		$ConfirmationDialog.source_label.text
-		)
-	_clean_tabs()
-	_create_tabs()
+	var name_text:String = $ConfirmationDialog.name_label.text
+	var dir_text:String = $ConfirmationDialog.source_label.text
+	if not $ConfirmationDialog.cancel_btn_pressed:
+		level_data_resource.add_level(
+			name_text,
+			dir_text
+			)
+		_clean_tabs()
+		_create_tabs()

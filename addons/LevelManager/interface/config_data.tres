@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource( 1 )
-level_data_file = ""
+level_data_file = "res://levels.tres"

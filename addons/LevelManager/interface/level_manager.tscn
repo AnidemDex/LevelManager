@@ -179,4 +179,3 @@ filters = PoolStringArray( "*.tres ; Godot Resource File", "*.res ; Godot Binary
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TabContainer/Config/VBoxContainer/HBoxContainer/Buttons/LevelFile/CreateFileButton" to="." method="_on_CreateFileButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TabContainer/Config/VBoxContainer/AddLvlButton" to="." method="_on_AddLvlButton_pressed"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
-[connection signal="popup_hide" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_popup_hide"]

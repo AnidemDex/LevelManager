@@ -15,6 +15,7 @@ default_env.tres
 icon.png
 icon.png.import
 proyect.godot
+levels.tres
 
 ####################
 # Windows
