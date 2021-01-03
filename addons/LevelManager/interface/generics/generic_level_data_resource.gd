@@ -2,7 +2,7 @@ tool
 extends Resource
 class_name ResourceLevelData
 
-export var levels = []
+export var levels:Array = []
 
 func add_level(name:String, source:String):
 	
