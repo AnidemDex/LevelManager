@@ -66,6 +66,7 @@ func _create_tabs():
 
 func _clean_tabs():
 	for tab in created_tabs:
+		remove_child(tab)
 		tab.queue_free()
 	created_tabs.clear()
 

@@ -6,6 +6,7 @@
 [node name="ConfirmationDialog" type="ConfirmationDialog"]
 margin_right = 483.0
 margin_bottom = 212.0
+popup_exclusive = true
 window_title = "Añadir un nivel"
 dialog_hide_on_ok = false
 script = ExtResource( 2 )
